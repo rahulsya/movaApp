@@ -1,8 +1,8 @@
 import React from 'react';
-import {AuthStack} from './routes';
+import {AuthStack, HomeStack} from './routes';
 
 const App = () => {
-  return <AuthStack />;
+  return <HomeStack />;
 };
 
 export default App;

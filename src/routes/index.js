@@ -1,2 +1,3 @@
 import AuthStack from './AuthStack';
-export {AuthStack};
+import HomeStack from './HomeStack';
+export {AuthStack, HomeStack};
