@@ -1,23 +1,38 @@
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import Header from '../../components/molecules/Header';
+import {useTranslation} from 'react-i18next';
 
 export default function Languages() {
-  const [currentLang, setCurrentLang] = useState('English');
+  const {i18n, t} = useTranslation();
+  const [currentLang, setCurrentLang] = useState(null);
 
-  const data = ['Indonesia', 'English'];
+  const data = [
+    {
+      name: 'Bahasa Indonesia',
+      value: 'id',
+    },
+    {
+      name: 'English',
+      value: 'en',
+    },
+  ];
+
   return (
     <View style={styles.container}>
-      <Header title={'Setting Language'} />
+      <Header title={t('headerSettingLanguage')} />
       {data?.map((item, index) => {
         return (
           <TouchableOpacity
             key={index}
-            onPress={() => setCurrentLang(item)}
+            onPress={() => {
+              i18n.changeLanguage(item.value);
+              setCurrentLang(item);
+            }}
             style={styles.cardContainer({
-              active: item === currentLang ? true : false,
+              active: item.name === currentLang?.name ? true : false,
             })}>
-            <Text style={styles.title}>{item}</Text>
+            <Text style={styles.title}>{item.name}</Text>
           </TouchableOpacity>
         );
       })}

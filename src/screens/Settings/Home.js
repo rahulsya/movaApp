@@ -7,43 +7,46 @@ import {
 } from 'react-native';
 import React from 'react';
 import Header from '../../components/molecules/Header';
+import {useTranslation} from 'react-i18next';
 
 export default function Home({navigation}) {
+  const {t} = useTranslation();
+
   const Menus = [
     {
-      title: 'Account',
-      desc: 'Preview and edit your account',
+      title: t('account.title'),
+      desc: t('account.desc'),
+      link: 'Setting Account',
+    },
+    {
+      title: t('privacy.title'),
+      desc: t('privacy.desc'),
+      link: 'Setting Privacy',
+    },
+    {
+      title: t('theme.title'),
+      desc: t('theme.desc'),
+      link: 'Setting Theme',
+    },
+    {
+      title: t('data-usage.title'),
+      desc: t('data-usage.desc'),
+      link: 'Setting Data',
+    },
+    {
+      title: t('about.title'),
+      desc: t('about.desc'),
+      link: 'Setting About',
+    },
+    {
+      title: t('language.title'),
+      desc: t('language.desc'),
       link: 'Setting Language',
     },
     {
-      title: 'Privacy and setting',
-      desc: 'Manage your account privacy',
-      link: 'Setting Language',
-    },
-    {
-      title: 'Color Theme',
-      desc: 'Manage your app theme',
-      link: 'Setting Language',
-    },
-    {
-      title: 'Data Usage',
-      desc: 'Limit data usage',
-      link: 'Setting Language',
-    },
-    {
-      title: 'About',
-      desc: 'Infromation about application',
-      link: 'Setting Language',
-    },
-    {
-      title: 'Language',
-      desc: 'Change language',
-      link: 'Setting Language',
-    },
-    {
-      title: 'Logout',
-      desc: 'Quit from app',
-      link: 'Setting Language',
+      title: t('logout.title'),
+      desc: t('logout.desc'),
+      link: 'Logout',
     },
   ];
 
@@ -65,7 +68,7 @@ export default function Home({navigation}) {
 
   return (
     <ScrollView style={styles.container}>
-      <Header title={'Setting and privacy'} />
+      <Header title={t('headerSettingHome')} />
       {Menus?.map((item, index) => (
         <SettingCard key={index} item={item} />
       ))}
