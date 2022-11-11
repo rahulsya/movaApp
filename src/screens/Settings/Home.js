@@ -4,6 +4,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  SafeAreaView,
 } from 'react-native';
 import React from 'react';
 import Header from '../../components/molecules/Header';
@@ -67,12 +68,14 @@ export default function Home({navigation}) {
   };
 
   return (
-    <ScrollView style={styles.container}>
-      <Header title={t('headerSettingHome')} />
-      {Menus?.map((item, index) => (
-        <SettingCard key={index} item={item} />
-      ))}
-    </ScrollView>
+    <SafeAreaView style={{flex: 1}}>
+      <ScrollView style={styles.container}>
+        <Header title={t('headerSettingHome')} />
+        {Menus?.map((item, index) => (
+          <SettingCard key={index} item={item} />
+        ))}
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 

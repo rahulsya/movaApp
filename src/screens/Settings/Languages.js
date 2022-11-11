@@ -1,4 +1,10 @@
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  SafeAreaView,
+} from 'react-native';
 import React, {useState} from 'react';
 import Header from '../../components/molecules/Header';
 import {useTranslation} from 'react-i18next';
@@ -19,7 +25,7 @@ export default function Languages() {
   ];
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Header title={t('headerSettingLanguage')} />
       {data?.map((item, index) => {
         return (
@@ -36,7 +42,7 @@ export default function Languages() {
           </TouchableOpacity>
         );
       })}
-    </View>
+    </SafeAreaView>
   );
 }
 
