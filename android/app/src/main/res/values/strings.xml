@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">movaApp</string>
+     <string moduleConfig="true" name="CodePushDeploymentKey">g8U51pEe3PAp8XKECvYe3808q2cNJVcXERXwy</string>
 </resources>
